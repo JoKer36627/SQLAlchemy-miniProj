@@ -13,11 +13,8 @@ def create_user(username: str, email: str):
     db.close()
     return new_user
 
-def get_users():
-    db = SessionLocal()
-    users = db.query(User).all()
-    db.close()
-    return users
+def get_users(session):
+    return session.query(User).all()
 
 def get_user_by_name(username: str):
     db = SessionLocal()
